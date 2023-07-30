@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de inicio de sesión</title>
+</head>
+<body>
+    <h1 style="text-align: center; font-family: Arial, sans-serif;">Iniciar sesión</h1>
+    <form id="login-form" style="display: inline-block; text-align: left; border: 1px solid #ccc; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <label for="matricula" style="display: block; margin-bottom: 5px;">Matrícula:</label>
+        <input type="text" id="matricula" name="matricula" required style="width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 3px; font-size: 16px;">
+
+        <label for="username" style="display: block; margin-bottom: 5px;">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" required style="width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 3px; font-size: 16px;">
+
+        <label for="password" style="display: block; margin-bottom: 5px;">Contraseña:</label>
+        <input type="password" id="password" name="password" required style="width: 100%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 3px; font-size: 16px;">
+
+        <input type="submit" value="Iniciar sesión" style="background-color: #4CAF50; color: #fff; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer;">
+    </form>
+    <div id="mensaje-bienvenida" style="margin-top: 20px; color: #4CAF50; font-size: 18px; display: none;"></div>
+
+    <script>
+       document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+           
+            const matricula = document.getElementById('matricula').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+   
+            if (matricula && username && password) {
+            
+                const mensajeBienvenida = document.getElementById('mensaje-bienvenida');
+                mensajeBienvenida.innerHTML = `Bienvenido/a ${username} con matrícula ${matricula}!`;
+                mensajeBienvenida.style.display = 'block';
+
+               
+            } else {
+                alert('Por favor, complete todos los campos.');
+            }
+        });
+    </script>
+</body>
+</html>
