@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de inicio de sesión</title>
+</head>
+<body>
+    <h1>Iniciar sesión</h1>
+    <form>
+        <label for="matricula">Matrícula:</label>
+        <input type="text" id="matricula" name="matricula" required>
+
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Iniciar sesión">
+    </form>
+    <div id="mensaje-bienvenida" style="display: none;"></div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+           
+            const matricula = document.getElementById('matricula').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+   
+            if (matricula && username && password) {
+            
+                const mensajeBienvenida = document.getElementById('mensaje-bienvenida');
+                mensajeBienvenida.innerHTML = `Bienvenido/a ${username} con matrícula ${matricula}!`;
+                mensajeBienvenida.style.display = 'block';
+
+               
+            } else {
+                alert('Por favor, complete todos los campos.');
+            }
+        });
+    </script>
+</body>
+</html>
